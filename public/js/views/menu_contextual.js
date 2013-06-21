@@ -11,6 +11,7 @@ MenuContextualView = Backbone.View.extend({
         'click #agregar': 'addPlace'
     },
     addPlace: function () {
+        'use strict';
         this.$el.css({'display': 'none'});
         $('#coords').show();
         $('#manualOption').attr('checked', true);

@@ -199,7 +199,8 @@ var countries = [
 AddPlaceView = Backbone.View.extend({
     el:'#agregar-sitio',
     initialize: function(){
-        var self, countryPlace, htmlCountries, geolocationOption, $latInput, $lgnInput;
+        'use strict';
+        var self, countryPlace, htmlCountries, geolocationOption, nogeolocationOption, $latInput, $lgnInput, $close, $form;
 
         $latInput = $('#latPlace');
         $lgnInput = $('#lngPlace');
@@ -227,16 +228,16 @@ AddPlaceView = Backbone.View.extend({
         function onSubmitForm(e) {
             e.preventDefault();
             $(this).ajaxSubmit({
-                success: function(data) {
+                success: function() {
                     app.places.fetch({
-                        success: function(collection, data){
+                        success: function(collection){
                             app.sidebar.addPlaces(collection);
                         }
                     });
                 }
             });
             self.$el.fadeOut('fast');
-            this.reset();
+            self.reset();
             $('input[type=radio]').attr('disabled', false);
             $('input[type=radio]').attr('checked', false);
             $('#coords').hide();

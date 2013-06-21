@@ -1,4 +1,6 @@
-var HeaderView = Backbone.View.extend({
+var HeaderView;
+
+HeaderView = Backbone.View.extend({
     el: '#header',
 
     events: {
@@ -7,12 +9,14 @@ var HeaderView = Backbone.View.extend({
     },
 
     showFormAddPlace: function(e) {
+        'use strict';
         e.preventDefault();
         $('#agregar-sitio').fadeToggle();
 
     },
 
     showFormLogin: function(e) {
+        'use strict';
         e.preventDefault();
         $('#logintt').fadeToggle();
     }

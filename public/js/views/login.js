@@ -1,16 +1,19 @@
-var LoginView = Backbone.View.extend({
-	el:'#logintt',
-	initialize: function(){
-		var self, loginButton;
+var LoginView;
 
-		self = this;
-		loginButton = $('#loginButton');
+LoginView = Backbone.View.extend({
+    el:'#logintt',
+    initialize: function(){
+        'use strict';
+        var self, loginButton;
 
-		function onLoginClick(e){
-			e.preventDefault();
-			self.$el.fadeToggle();
-		}
+        self = this;
+        loginButton = $('#loginButton');
 
-		loginButton.on('click', onLoginClick);
-	}
+        function onLoginClick(e){
+            e.preventDefault();
+            self.$el.fadeToggle();
+        }
+
+        loginButton.on('click', onLoginClick);
+    }
 });
